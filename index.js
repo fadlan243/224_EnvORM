@@ -54,3 +54,8 @@ app.delete("/komik/:id", async (req, res) => {
     }
 })
 
+db.sequelize.sync()
+    .then(() => {
+        app.listen(PORT, () => {console.log('Server started on PORT ' + PORT)});
+    })
+    .catch((err) => {console.log(err)})
